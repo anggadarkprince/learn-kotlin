@@ -1,5 +1,7 @@
 package basic.function
 
+import java.util.*
+
 fun helloWorld() {
     println("Hello world")
 }
@@ -51,10 +53,15 @@ fun String.helloWorld(): String {
 }
 
 infix fun String.to(type: String): String {
-    if (type == "UP") {
-        return this.toUpperCase()
+    // return before if (inside block last statement as return value
+    return if (type == "UP") {
+        // another statement 1
+        // other statement 2
+
+        // this line will be returned
+        this.uppercase(Locale.getDefault())
     } else {
-        return this.toLowerCase()
+        this.lowercase(Locale.getDefault())
     }
 }
 
@@ -105,4 +112,25 @@ fun main() {
         println("Say hay only can be called inside main()")
     }
     sayHay()
+
+    // anonymous function
+    val anonymousUpper = fun(value: String): String {
+        if (value.isBlank()) {
+            return "Ups"
+        }
+        return value.uppercase()
+    }
+    println(anonymousUpper("Angga"))
+
+    // Closure (ability function, anonymous or lambda interact outside parent function, same scope)
+    var counter: Int = 0;
+    val countData = fun() {
+        counter++
+    }
+    fun countIncrement() {
+        counter++
+    }
+    val countLambda: () -> Unit = {
+        counter++
+    }
 }
