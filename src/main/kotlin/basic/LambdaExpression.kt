@@ -1,8 +1,11 @@
 package basic
 
 // inline function
-inline fun helloInline(name: () -> String): String {
-    return "Hello ${name()}"
+inline fun helloInline(
+    name: () -> String,
+    noinline lastName: () -> String
+): String {
+    return "Hello ${name()} ${lastName()}"
 }
 
 fun main() {
@@ -55,5 +58,6 @@ fun main() {
     }, 7)
     println(value)
 
-    println(helloInline { "Angga" })
+    //println(helloInline { "Angga" })
+    println(helloInline({ "Angga" }, { "Ari" }))
 }
