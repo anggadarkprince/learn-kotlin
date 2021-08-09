@@ -11,6 +11,11 @@ fun main() {
     }
     println("Total $total")
 
+    // loop down decrement 2
+    for (i in 6 downTo 0 step 2) {
+        println(i)
+    }
+
     val sizeArray = array.size - 1
     for (i in 0..sizeArray) {
         println("Index $i = ${array.get(i)}")
