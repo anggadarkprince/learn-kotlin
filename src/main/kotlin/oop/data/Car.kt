@@ -18,4 +18,8 @@ class Car(paramBrand: String, paramName: String, paramYear: Int = 0) {
     var brand: String = paramBrand
     var name: String = paramName
     var year: Int = paramYear
+
+    override fun toString(): String {
+        return "$brand $name $year"
+    }
 }
