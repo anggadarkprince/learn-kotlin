@@ -9,7 +9,6 @@ open class Customer(val name: String, val type: String, val balance: Long) {
 class PremiumCustomer: Customer {
     constructor(name: String): super(name, "Premium")
     constructor(name: String, balance: Long): super(name, "Premium", balance)
-
 }
 
 /*
