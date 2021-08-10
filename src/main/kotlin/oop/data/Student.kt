@@ -1,3 +1,3 @@
 package oop.data
 
-class Student(val name: String)
+class Student(var name: String)

@@ -1,6 +1,6 @@
 package oop.data
 
-open class Customer(val name: String, val type: String, val balance: Long) {
+open class Customer(var name: String, val type: String, val balance: Long) {
     operator fun component1(): Any {
         return name
     }
