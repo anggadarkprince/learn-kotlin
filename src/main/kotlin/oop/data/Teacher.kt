@@ -2,6 +2,7 @@ package oop.data
 
 open class Teacher {
     public val role = "Teacher"
+    public var name = ""
     private var birthday = "2021-01-01"
 
     public fun goToSchool() {
