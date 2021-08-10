@@ -1,4 +1,3 @@
 package oop.data
 
-class Student {
-}
+class Student(val name: String)
