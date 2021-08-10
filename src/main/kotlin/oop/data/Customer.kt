@@ -1,6 +1,16 @@
 package oop.data
 
 open class Customer(val name: String, val type: String, val balance: Long) {
+    operator fun component1(): Any {
+        return name
+    }
+    operator fun component2(): Any {
+        return type
+    }
+    operator fun component3(): Any {
+        return balance
+    }
+
     constructor(name: String, type: String): this(name, type, 0)
     constructor(name: String): this(name, "Standard")
 }
