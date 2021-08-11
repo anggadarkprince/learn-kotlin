@@ -1,11 +1,33 @@
 package oop
 
-data class Fruit(val total: Int) {
+data class Fruit(var total: Int) {
+    // add operator function that compare, check, get/set the object
+    // obj >, obj <=, obj++, obj[key], etc...
     operator fun plus(fruit: Fruit): Fruit {
         return Fruit(total + fruit.total)
     }
     operator fun minus(fruit: Fruit): Fruit {
         return Fruit(total + fruit.total)
+    }
+    operator fun invoke(name: String) {
+        println("Invoke object fruit $name")
+    }
+    operator fun get(key: String): Any {
+        return if (key == "total") {
+            total
+        } else {
+            ""
+        }
+    }
+    operator fun set(key: String, value: Int): Any {
+        return if (key == "total") {
+            total = value
+        } else {
+            total = 0
+        }
+    }
+    operator fun compareTo(other: Any): Int {
+        return total.compareTo(other as Int)
     }
 }
 
@@ -34,8 +56,8 @@ fun main() {
     number.dec() // number--
 
     // aritmatic operator
-    number.plus(2)
-    number.minus(4)
+    println(number + 2) // number.plus(2)
+    println(number - 2) // number.minus(4)
     number.times(3)
     number.div(3)
     number.rem(3)
@@ -46,18 +68,21 @@ fun main() {
     !value.contains('c') // angga !in c
 
     // index access
-    data.get(2) // data[2]
-    data.set(1, 1000) // data[1] = 1000
+    println(fruit["total"]) // data[2]
+    fruit["total"] = 30 // data[1] = 1000
+    println(fruit.total)
 
     // invoke operator
     // a(i)	 =  a.invoke(i)
     // a(i, j)	a.invoke(i, j)
+    fruit("Apple") // fruit.invoke()
 
     // equality / inequality
     number?.equals(value) ?: (value === null)
     !(number?.equals(value) ?: (value === null))
 
     // comparison
+    println(fruit > 2)
     number.compareTo(number2) > 0
     number.compareTo(number2) < 0
     number.compareTo(number2) >= 0
