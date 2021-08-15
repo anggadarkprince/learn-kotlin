@@ -1,6 +1,7 @@
 package collection
 
 fun main() {
+    // not child of collection, independent interface
     // immutable map, or dictionary, or associative array
     // key - value
     // unique key, put existing key, will override the value
