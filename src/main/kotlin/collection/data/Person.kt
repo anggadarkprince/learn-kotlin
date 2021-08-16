@@ -1,6 +1,6 @@
 package collection.data
 
-class Person(val name: String) {
+class Person(val name: String, val age: Int = 0) {
     override fun hashCode(): Int {
         return name.hashCode()
     }
